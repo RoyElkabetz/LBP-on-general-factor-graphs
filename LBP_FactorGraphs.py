@@ -157,7 +157,6 @@ g.vis_graph()
 
 t_max = 10
 beliefs = BP(g, t_max, 1)
-print('fuck')
 
 plt.figure()
 plt.plot(range(t_max), beliefs['b'][0, :], 'bo')
