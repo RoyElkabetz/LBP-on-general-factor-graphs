@@ -135,7 +135,8 @@ def BP(Graph, t_max, epsilon):
     calculate beliefs
     check beliefs against simple system
     generalize for iterations up to t_max              - done
-    add an exit with epsilon
+    add an exit with epsilon                           - done
+    add exact marginal
 '''
 
 '''
@@ -171,10 +172,10 @@ g.add_factor('F', np.array(['c', 'd']), np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3
 g.add_factor('G', np.array(['b', 'd']), np.array([[0, 0, 1], [2, 0, 2]]))
 g.vis_graph()
 
-t_max = 10
-[beliefs, t_last] = BP(g, t_max, 1)
+t_max = 100
+[beliefs, t_last] = BP(g, t_max, 1e-20)
 
 plt.figure()
-plt.plot(range(t_last + 1), beliefs['b'][0, 0:(t_last + 1)], 'bo')
-plt.plot(range(t_last + 1), beliefs['b'][1, 0:(t_last + 1)], 'ro')
+plt.plot(range(t_last + 1), beliefs['a'][0, 0:(t_last + 1)], 'bo')
+plt.plot(range(t_last + 1), beliefs['a'][1, 0:(t_last + 1)], 'ro')
 plt.show()
