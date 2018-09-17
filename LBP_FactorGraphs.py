@@ -63,17 +63,24 @@ def BP(Graph, t_max, epsilon):
     node2fac_messages = {}
     fac2node_messages = {}
     beliefs = {}
+    delta = {}
+    sum_of_alphabets = 0
+    t_last = 0
 
     for A in factors:
         fac2node_messages[A] = {}
     for a in nodes:
         alphabet = nodes[a][1]
+        sum_of_alphabets += alphabet
         node2fac_messages[a] = {}
         for A in nodes[a][2]:
             node2fac_messages[a][A] = np.ones(alphabet, dtype=float)/alphabet
-        beliefs[a] = np.ones((alphabet, t_max), dtype=float) / alphabet
+        beliefs[a] = np.ones((alphabet, t_max + 1), dtype=float) / alphabet
 
     for t in range(t_max):
+        t_last = t + 1
+        counter = 0
+
         for A in factors:
             tensor_interaction = factors[A][1]
             node_neighbors = factors[A][0]
@@ -103,13 +110,22 @@ def BP(Graph, t_max, epsilon):
                             continue
                         else:
                             node2fac_messages[a][A] = np.multiply(node2fac_messages[a][A], fac2node_messages[B][a])
-                            beliefs[a][:, t] = np.multiply(beliefs[a][:, t], fac2node_messages[B][a])
-                    beliefs[a][:, t] = np.multiply(beliefs[a][:, t], fac2node_messages[A][a])
-                    beliefs[a][:, t] /= sum(beliefs[a][:, t])
+                            beliefs[a][:, t + 1] = np.multiply(beliefs[a][:, t  + 1], fac2node_messages[B][a])
+                    beliefs[a][:, t  + 1] = np.multiply(beliefs[a][:, t  + 1], fac2node_messages[A][a])
+                    beliefs[a][:, t  + 1] /= sum(beliefs[a][:, t + 1])
+                    delta[a] = abs(beliefs[a][:, t + 1] - beliefs[a][:, t])
                     node2fac_messages[a][A] /= sum(node2fac_messages[a][A])
                 else:
                     continue
-    return beliefs
+
+        for a in nodes:
+            for i in range(nodes[a][1]):
+                if delta[a][i] <= epsilon:
+                    counter += 1
+        if counter == sum_of_alphabets:
+            break
+
+    return [beliefs, t_last]
 
 
 ''' check that messages are normalized !!!             - done
@@ -156,9 +172,9 @@ g.add_factor('G', np.array(['b', 'd']), np.array([[0, 0, 1], [2, 0, 2]]))
 g.vis_graph()
 
 t_max = 10
-beliefs = BP(g, t_max, 1)
+[beliefs, t_last] = BP(g, t_max, 1)
 
 plt.figure()
-plt.plot(range(t_max), beliefs['b'][0, :], 'bo')
-plt.plot(range(t_max), beliefs['b'][1, :], 'ro')
+plt.plot(range(t_last + 1), beliefs['b'][0, 0:(t_last + 1)], 'bo')
+plt.plot(range(t_last + 1), beliefs['b'][1, 0:(t_last + 1)], 'ro')
 plt.show()
