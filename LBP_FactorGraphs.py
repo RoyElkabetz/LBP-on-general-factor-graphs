@@ -21,7 +21,7 @@ class Graph:
                 raise IndexError('Tried to factor non exciting node')
             self.nodes[item][2].add(factor_name)
         self.factors_count += 1
-        self.factors[factor_name] = [nodes, np.exp( - interaction_potential)]
+        self.factors[factor_name] = [nodes, np.exp(- interaction_potential)]
 
     def vis_graph(self):
         node_keys = self.nodes.keys()
@@ -66,6 +66,7 @@ def BP(Graph, t_max, epsilon):
     delta = {}
     sum_of_alphabets = 0
     t_last = 0
+    z = np.ones((t_max + 1), dtype=float)
 
     for A in factors:
         fac2node_messages[A] = {}
@@ -110,13 +111,19 @@ def BP(Graph, t_max, epsilon):
                             continue
                         else:
                             node2fac_messages[a][A] = np.multiply(node2fac_messages[a][A], fac2node_messages[B][a])
-                            beliefs[a][:, t + 1] = np.multiply(beliefs[a][:, t  + 1], fac2node_messages[B][a])
-                    beliefs[a][:, t  + 1] = np.multiply(beliefs[a][:, t  + 1], fac2node_messages[A][a])
-                    beliefs[a][:, t  + 1] /= sum(beliefs[a][:, t + 1])
+                            beliefs[a][:, t + 1] = np.multiply(beliefs[a][:, t + 1], fac2node_messages[B][a])
+                    beliefs[a][:, t + 1] = np.multiply(beliefs[a][:, t + 1], fac2node_messages[A][a])
+                    beliefs[a][:, t + 1] /= sum(beliefs[a][:, t + 1])
                     delta[a] = abs(beliefs[a][:, t + 1] - beliefs[a][:, t])
                     node2fac_messages[a][A] /= sum(node2fac_messages[a][A])
                 else:
                     continue
+
+        for A in factors:
+            boltzmann_factor = factors[A][1]
+            for i in range(len(np.shape(boltzmann_factor))):
+                boltzmann_factor = np.sum(boltzmann_factor, 0)
+            z[t + 1] *= boltzmann_factor
 
         for a in nodes:
             for i in range(nodes[a][1]):
@@ -125,14 +132,14 @@ def BP(Graph, t_max, epsilon):
         if counter == sum_of_alphabets:
             break
 
-    return [beliefs, t_last]
+    return [beliefs, z, t_last]
 
 
 def exact_partition(graph):
     factors = graph.factors
     z = 1
     for A in factors:
-        boltzmann_factor = np.exp(- factors[A][1])
+        boltzmann_factor = factors[A][1]
         for i in range(len(np.shape(boltzmann_factor))):
             boltzmann_factor = np.sum(boltzmann_factor, 0)
         z *= boltzmann_factor
@@ -186,11 +193,15 @@ g.add_factor('G', np.array(['b', 'd']), np.array([[0, 0, 1], [2, 0, 2]]))
 g.vis_graph()
 
 t_max = 100
-[beliefs, t_last] = BP(g, t_max, 1e-20)
-z = exact_partition(g)
+[beliefs, z, t_last] = BP(g, t_max, 1e-20)
+z_exact = exact_partition(g)
 
 plt.figure()
 plt.plot(range(t_last + 1), beliefs['a'][0, 0:(t_last + 1)], 'bo')
 plt.plot(range(t_last + 1), beliefs['a'][1, 0:(t_last + 1)], 'ro')
 plt.show()
 
+plt.figure()
+plt.plot(range(t_last + 1), z[0:(t_last + 1)], 'go')
+plt.plot(z_exact, 'ro')
+plt.show()
