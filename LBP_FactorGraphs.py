@@ -173,7 +173,7 @@ def exact_partition(graph):
                                                                           [[4, 4, 4, 4], [5, 5, 5, 5], [6, 6, 6, 6]]]))
                          
 '''
-
+'''
 h = 1
 k = 2
 g = Graph()
@@ -205,3 +205,4 @@ plt.figure()
 plt.plot(range(t_last + 1), z[0:(t_last + 1)], 'go')
 plt.plot(z_exact, 'ro')
 plt.show()
+'''
