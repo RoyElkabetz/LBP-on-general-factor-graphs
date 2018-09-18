@@ -128,6 +128,19 @@ def BP(Graph, t_max, epsilon):
     return [beliefs, t_last]
 
 
+def exact_partition(graph):
+    factors = graph.factors
+    z = 1
+    for A in factors:
+        boltzmann_factor = np.exp(- factors[A][1])
+        for i in range(len(np.shape(boltzmann_factor))):
+            boltzmann_factor = np.sum(boltzmann_factor, 0)
+        z *= boltzmann_factor
+    return z
+
+
+
+
 ''' check that messages are normalized !!!             - done
     what about np.exp() for the factors !!!!!!!!!      - done
     check factors are normelized                       - don't need to be
@@ -174,8 +187,10 @@ g.vis_graph()
 
 t_max = 100
 [beliefs, t_last] = BP(g, t_max, 1e-20)
+z = exact_partition(g)
 
 plt.figure()
 plt.plot(range(t_last + 1), beliefs['a'][0, 0:(t_last + 1)], 'bo')
 plt.plot(range(t_last + 1), beliefs['a'][1, 0:(t_last + 1)], 'ro')
 plt.show()
+
