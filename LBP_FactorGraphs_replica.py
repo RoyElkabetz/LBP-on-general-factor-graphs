@@ -26,7 +26,7 @@ class Graph:
                 raise IndexError('Tried to factor non exciting node')
             self.nodes[factor_nodes[i]][2].add(factor_name)
         self.factors_count += 1
-        self.factors[factor_name] = self.broadcasting(np.exp(- boltzmann_factor), factor_nodes)
+        self.factors[factor_name] = [factor_nodes, self.broadcasting(np.exp(- boltzmann_factor), factor_nodes)]
 
     def exact_partition(self):
         alphabet = np.zeros(self.node_count, dtype=np.int)
@@ -34,10 +34,40 @@ class Graph:
             alphabet[i] = self.nodes[i][1]
         z = np.ones(np.array(alphabet), dtype=float)
         for item in self.factors:
-            z *= self.factors[item]
+            z *= self.factors[item][1]
         for i in range(self.node_count):
             z = np.sum(z, 0)
         return z
+
+    def sum_product(self, t_max, epsilon):
+        factors = self.factors
+        nodes = self.nodes
+        node2factor = []
+        factor2node = {}
+        for i in range(self.node_count):
+            alphabet = nodes[i][1]
+            node2factor.append(np.ones(alphabet) / alphabet)
+            node2factor[i] = self.broadcasting(node2factor[i], i)
+        for t in range(t_max):
+            for item in factors:
+                neighbors_nodes = factors[item][0]
+                factor2node[item] = []
+                temp = factors[item][1]
+                for i in range(len(neighbors_nodes)):
+                    for j in range(len(neighbors_nodes)):
+                        if neighbors_nodes[j] == neighbors_nodes[i]:
+                            continue
+                        else:
+                            temp *= node2factor[neighbors_nodes[j]]
+                    for j in range(len(neighbors_nodes)):
+                        if neighbors_nodes[j] == neighbors_nodes[i]:
+                            continue
+                        else:
+                            temp = np.sum(temp, axis=neighbors_nodes[j])
+                    factor2node[item].append([neighbors_nodes[i], temp / np.sum(temp, axis=neighbors_nodes[i])])
+            for i in range(self.node_count):
+
+
 
 '''
     def vis_graph(self):

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5edcd4d9-7ca2-49ac-802a-1a46fe3967ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/1DIsing_replica.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/broadcasting_ex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +37,8 @@
       <file leaf-file-name="1DIsing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1DIsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="480">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -62,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="227">
+              <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -83,10 +79,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LBP_FactorGraphs.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LBP_FactorGraphs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
+            <state relative-caret-position="991">
               <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -114,8 +110,8 @@
         <option value="$PROJECT_DIR$/1DIsing.py" />
         <option value="$PROJECT_DIR$/broadcasting_ex.py" />
         <option value="$PROJECT_DIR$/LBP_FactorGraphs.py" />
-        <option value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
         <option value="$PROJECT_DIR$/1DIsing_replica.py" />
+        <option value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
       </list>
     </option>
   </component>
@@ -341,28 +337,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1DIsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -376,10 +352,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
+        <state relative-caret-position="991">
           <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
