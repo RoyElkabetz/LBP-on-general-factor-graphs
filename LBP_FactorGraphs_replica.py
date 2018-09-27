@@ -44,28 +44,49 @@ class Graph:
         nodes = self.nodes
         node2factor = []
         factor2node = {}
+        node_belief = []
         for i in range(self.node_count):
             alphabet = nodes[i][1]
-            node2factor.append(np.ones(alphabet) / alphabet)
-            node2factor[i] = self.broadcasting(node2factor[i], i)
+            node2factor.append({})
+            node_belief.append([])
+            for item in nodes[i][2]:
+                node2factor[i][item] = np.ones(alphabet) / alphabet
+                node2factor[i][item] = self.broadcasting(node2factor[i][item], np.array([i]))
+            node_belief[i].append(np.ones(alphabet) / alphabet)
         for t in range(t_max):
             for item in factors:
                 neighbors_nodes = factors[item][0]
-                factor2node[item] = []
-                temp = factors[item][1]
+                factor2node[item] = {}
                 for i in range(len(neighbors_nodes)):
+                    temp = factors[item][1]
                     for j in range(len(neighbors_nodes)):
                         if neighbors_nodes[j] == neighbors_nodes[i]:
                             continue
                         else:
-                            temp *= node2factor[neighbors_nodes[j]]
-                    for j in range(len(neighbors_nodes)):
-                        if neighbors_nodes[j] == neighbors_nodes[i]:
-                            continue
-                        else:
-                            temp = np.sum(temp, axis=neighbors_nodes[j])
-                    factor2node[item].append([neighbors_nodes[i], temp / np.sum(temp, axis=neighbors_nodes[i])])
+                            temp *= node2factor[neighbors_nodes[j]][item]
+                    vec = range(self.node_count)
+                    vec[neighbors_nodes[i]] = 0
+                    vec[0] = neighbors_nodes[i]
+                    temp = np.transpose(temp, vec)
+                    for j in range(self.node_count - 1):
+                        temp = np.sum(temp, axis=1)
+                    factor2node[item][neighbors_nodes[i]] = temp / np.sum(temp, axis=0)
             for i in range(self.node_count):
+                neighbors_factors = nodes[i][2]
+                temp = 1
+                for item in neighbors_factors:
+                    print(i)
+                    print(item)
+                    for object in neighbors_factors:
+                        if object == item:
+                            continue
+                        else:
+                            node2factor[i][item] *= self.broadcasting(np.array(factor2node[object][i]), np.array([i]))
+                    node2factor[i][item] /= np.sum(node2factor[i][item], axis=0)
+                    temp *= factor2node[item][i]
+                    print(np.shape(temp))
+                node_belief[i].append(temp / np.sum(temp, axis=0))
+        return node_belief
 
 
 
@@ -105,6 +126,7 @@ class Graph:
 
 h = 1
 k = 2
+t_max = 100
 g = Graph()
 g.add_node('a', 2)
 g.add_node('b', 2)
@@ -121,3 +143,19 @@ g.add_factor('F', np.array([2, 3]), np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]]))
 g.add_factor('G', np.array([1, 3]), np.array([[0, 0, 1], [2, 0, 2]]))
 
 z = g.exact_partition()
+beliefs = g.sum_product(t_max, 1)
+
+
+plt.figure()
+plt.plot(range(t_max + 1), beliefs[0], 'o')
+plt.plot(range(t_max + 1), beliefs[1], 'o')
+plt.plot(range(t_max + 1), beliefs[2], 'o')
+plt.plot(range(t_max + 1), beliefs[3], 'o')
+plt.show()
+
+'''
+next:
+
+calculating z from bp
+compare z to exact for simple model
+'''

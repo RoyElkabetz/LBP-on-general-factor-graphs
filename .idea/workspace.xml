@@ -12,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$LBP_FactorGraphs_replica.coverage" NAME="LBP_FactorGraphs_replica Coverage Results" MODIFIED="1537882964472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$LBP_FactorGraphs_replica.coverage" NAME="LBP_FactorGraphs_replica Coverage Results" MODIFIED="1538085064950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing_replica.coverage" NAME="1DIsing_replica Coverage Results" MODIFIED="1537883518381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$LBP_FactorGraphs.coverage" NAME="LBP_FactorGraphs Coverage Results" MODIFIED="1537881649644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing.coverage" NAME="1DIsing Coverage Results" MODIFIED="1537270228465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -49,7 +49,7 @@
       <file leaf-file-name="1DIsing_replica.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="345">
               <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -61,8 +61,8 @@
       <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+            <state relative-caret-position="302">
+              <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -82,8 +82,8 @@
       <file leaf-file-name="LBP_FactorGraphs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="991">
-              <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+            <state relative-caret-position="317">
+              <caret line="206" column="9" lean-forward="true" selection-start-line="197" selection-end-line="206" selection-end-column="9" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -167,7 +167,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.1DIsing">
+  <component name="RunManager" selected="Python.LBP_FactorGraphs_replica">
     <configuration name="1DIsing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LBP-on-general-factor-graphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -272,9 +272,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.LBP_FactorGraphs_replica" />
         <item itemvalue="Python.1DIsing" />
         <item itemvalue="Python.1DIsing_replica" />
-        <item itemvalue="Python.LBP_FactorGraphs_replica" />
         <item itemvalue="Python.broadcasting_ex" />
         <item itemvalue="Python.LBP_FactorGraphs" />
       </list>
@@ -300,14 +300,14 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5007153" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.25142857" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" weight="0.3297568" />
-      <window_info anchor="right" id="SciView" weight="0.3297568" />
+      <window_info active="true" anchor="right" id="SciView" visible="true" weight="0.3297568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
@@ -328,7 +328,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -352,20 +352,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
+    <entry file="file://$USER_HOME$/anaconda2/lib/python2.7/site-packages/numpy/core/einsumfunc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
+        <state relative-caret-position="98">
+          <caret line="1068" selection-start-line="1068" selection-end-line="1068" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="206" column="9" lean-forward="true" selection-start-line="197" selection-end-line="206" selection-end-column="9" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
+    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="991">
-          <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+        <state relative-caret-position="345">
+          <caret line="23" column="67" lean-forward="true" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -374,8 +381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
+        <state relative-caret-position="302">
+          <caret line="154" lean-forward="true" selection-start-line="154" selection-end-line="154" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
