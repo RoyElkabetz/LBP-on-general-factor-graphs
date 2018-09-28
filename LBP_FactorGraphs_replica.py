@@ -1,6 +1,8 @@
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
+import copy as cp
+
 
 
 class Graph:
@@ -58,7 +60,7 @@ class Graph:
                 neighbors_nodes = factors[item][0]
                 factor2node[item] = {}
                 for i in range(len(neighbors_nodes)):
-                    temp = factors[item][1]
+                    temp = cp.deepcopy(factors[item][1])
                     for j in range(len(neighbors_nodes)):
                         if neighbors_nodes[j] == neighbors_nodes[i]:
                             continue
@@ -75,8 +77,6 @@ class Graph:
                 neighbors_factors = nodes[i][2]
                 temp = 1
                 for item in neighbors_factors:
-                    print(i)
-                    print(item)
                     for object in neighbors_factors:
                         if object == item:
                             continue
@@ -84,9 +84,27 @@ class Graph:
                             node2factor[i][item] *= self.broadcasting(np.array(factor2node[object][i]), np.array([i]))
                     node2factor[i][item] /= np.sum(node2factor[i][item], axis=0)
                     temp *= factor2node[item][i]
-                    print(np.shape(temp))
                 node_belief[i].append(temp / np.sum(temp, axis=0))
         return node_belief
+
+    def mean_field_approx_to_F(self, node_beliefs):
+        factors = self.factors
+        energy = 0
+        entropy = 0
+        for item in factors:
+            temp = cp.deepcopy(factors[item][1])
+            temp = - np.log(temp)
+            for i in range(len(factors[item][0])):
+                temp *= self.broadcasting(node_beliefs[factors[item][0][i]], np.array([factors[item][0][i]]))
+            for i in range(self.node_count):
+                temp = np.sum(temp, axis=0)
+            energy += temp
+        temp = 0
+        for i in range(self.node_count):
+            temp += np.dot(node_beliefs[i], np.log(node_beliefs[i]))
+        entropy = - temp
+        F_approx = energy - entropy
+        return  F_approx
 
 
 
@@ -123,10 +141,10 @@ class Graph:
         nx.draw_networkx_edges(G, pos=pos)
         plt.show()
 '''
-
+'''
 h = 1
 k = 2
-t_max = 100
+t_max = 20
 g = Graph()
 g.add_node('a', 2)
 g.add_node('b', 2)
@@ -140,10 +158,15 @@ g.add_factor('C', np.array([0]), np.array([h, - h]))
 g.add_factor('D', np.array([1]), np.array([h, - h]))
 g.add_factor('E', np.array([0]), np.array([h, - h]))
 g.add_factor('F', np.array([2, 3]), np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]]))
-g.add_factor('G', np.array([1, 3]), np.array([[0, 0, 1], [2, 0, 2]]))
+g.add_factor('G', np.array([1, 3]), np.array([[2, 2, 1], [2, 3, 2]]))
 
 z = g.exact_partition()
+F = np.log(z)
 beliefs = g.sum_product(t_max, 1)
+node_beliefs = []
+for i in range(g.node_count):
+    node_beliefs.append(beliefs[i][t_max])
+F_mean_field = g.mean_field_approx_to_F(node_beliefs)
 
 
 plt.figure()
@@ -152,7 +175,7 @@ plt.plot(range(t_max + 1), beliefs[1], 'o')
 plt.plot(range(t_max + 1), beliefs[2], 'o')
 plt.plot(range(t_max + 1), beliefs[3], 'o')
 plt.show()
-
+'''
 '''
 next:
 

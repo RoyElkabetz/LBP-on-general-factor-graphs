@@ -8,6 +8,7 @@ import LBP_FactorGraphs_replica as lbp
 # parameters
 h = 0.1
 k = 1
+t_max = 20
 
 # name of graph
 g = lbp.Graph()
@@ -33,3 +34,16 @@ g.add_factor('G', np.array([2]), np.array([h, - h]))
 
 
 z = g.exact_partition()
+F = - np.log(z)
+beliefs = g.sum_product(t_max, 1)
+node_beliefs = []
+for i in range(g.node_count):
+    node_beliefs.append(beliefs[i][t_max])
+F_mean_field = g.mean_field_approx_to_F(node_beliefs)
+
+
+plt.figure()
+plt.plot(range(t_max + 1), beliefs[0], 'o')
+plt.plot(range(t_max + 1), beliefs[1], 'o')
+plt.plot(range(t_max + 1), beliefs[2], 'o')
+plt.show()
