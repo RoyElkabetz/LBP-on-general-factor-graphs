@@ -8,7 +8,7 @@ import LBP_FactorGraphs_replica as lbp
 # parameters
 h = 0.1
 k = 1
-t_max = 20
+t_max = 1
 
 # name of graph
 g = lbp.Graph()
@@ -40,6 +40,7 @@ node_beliefs = []
 for i in range(g.node_count):
     node_beliefs.append(beliefs[i][t_max])
 F_mean_field = g.mean_field_approx_to_F(node_beliefs)
+z_mean_field = np.exp(- F_mean_field)
 
 
 plt.figure()
