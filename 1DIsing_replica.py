@@ -8,7 +8,7 @@ import LBP_FactorGraphs_replica as lbp
 # parameters
 h = 0.1
 k = 1
-t_max = 1
+t_max = 4
 
 # name of graph
 g = lbp.Graph()

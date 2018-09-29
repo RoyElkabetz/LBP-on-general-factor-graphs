@@ -60,19 +60,18 @@ class Graph:
                 neighbors_nodes = factors[item][0]
                 factor2node[item] = {}
                 for i in range(len(neighbors_nodes)):
+                    vec = range(self.node_count)
                     temp = cp.deepcopy(factors[item][1])
                     for j in range(len(neighbors_nodes)):
                         if neighbors_nodes[j] == neighbors_nodes[i]:
                             continue
                         else:
+                            vec.remove(neighbors_nodes[j])
                             temp *= node2factor[neighbors_nodes[j]][item]
-                    vec = range(self.node_count)
-                    vec[neighbors_nodes[i]] = 0
-                    vec[0] = neighbors_nodes[i]
-                    temp = np.transpose(temp, vec)
-                    for j in range(self.node_count - 1):
-                        temp = np.sum(temp, axis=1)
-                    factor2node[item][neighbors_nodes[i]] = temp / np.sum(temp, axis=0)
+                    temp = np.einsum(temp, range(self.node_count), vec)
+                    vec2 = cp.copy(vec)
+                    vec2.remove(neighbors_nodes[i])
+                    factor2node[item][neighbors_nodes[i]] = np.reshape(temp / np.einsum(temp, vec, vec2), nodes[neighbors_nodes[i]][1])
             for i in range(self.node_count):
                 neighbors_factors = nodes[i][2]
                 temp = 1
