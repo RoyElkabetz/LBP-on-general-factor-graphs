@@ -81,12 +81,8 @@ class Graph:
                             continue
                         else:
                             node2factor[i][item] *= self.broadcasting(np.array(factor2node[object][i]), np.array([i]))
-                    print(i)
-                    print(item)
-                    print(np.shape(node2factor[i][item]))
                     node2factor[i][item] /= np.sum(node2factor[i][item], axis=i)
                     temp *= factor2node[item][i]
-                    print(np.shape(temp))
                 node_belief[i].append(temp / np.sum(temp, axis=0))
         return node_belief
 
@@ -96,7 +92,7 @@ class Graph:
         entropy = 0
         for item in factors:
             temp = cp.deepcopy(factors[item][1])
-            temp = - np.log(temp)
+            temp =  np.log(temp)
             for i in range(len(factors[item][0])):
                 temp *= self.broadcasting(node_beliefs[factors[item][0][i]], np.array([factors[item][0][i]]))
             for i in range(self.node_count):
@@ -164,7 +160,7 @@ g.add_factor('F', np.array([2, 3]), np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]]))
 g.add_factor('G', np.array([1, 3]), np.array([[2, 2, 1], [2, 3, 2]]))
 
 z = g.exact_partition()
-F = np.log(z)
+F = - np.log(z)
 beliefs = g.sum_product(t_max, 1)
 node_beliefs = []
 for i in range(g.node_count):
