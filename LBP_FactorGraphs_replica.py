@@ -103,13 +103,12 @@ class Graph:
             temp += np.dot(node_beliefs[i], np.log(node_beliefs[i]))
         entropy = - temp
         F_approx = energy - entropy
-        return  F_approx
+        return F_approx
 
-
-
-'''
     def vis_graph(self):
-        node_keys = self.nodes.keys()
+        node_keys = []
+        for i in range(self.node_count):
+            node_keys.append(self.nodes[i][0])
         factor_keys = self.factors.keys()
         G = nx.Graph()
         G.add_nodes_from(node_keys)
@@ -119,8 +118,8 @@ class Graph:
         pos = {}
         i = 0
         j = 0
-        for item in self.nodes:
-            temp = item
+        for item in range(self.node_count):
+            temp = cp.copy(self.nodes[item][0])
             node_pos[temp] = [i, j]
             pos[temp] = [i, j]
             i += 1
@@ -139,7 +138,7 @@ class Graph:
         nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s')
         nx.draw_networkx_edges(G, pos=pos)
         plt.show()
-'''
+
 '''
 h = 1
 k = 2
