@@ -81,8 +81,12 @@ class Graph:
                             continue
                         else:
                             node2factor[i][item] *= self.broadcasting(np.array(factor2node[object][i]), np.array([i]))
-                    node2factor[i][item] /= np.sum(node2factor[i][item], axis=0)
+                    print(i)
+                    print(item)
+                    print(np.shape(node2factor[i][item]))
+                    node2factor[i][item] /= np.sum(node2factor[i][item], axis=i)
                     temp *= factor2node[item][i]
+                    print(np.shape(temp))
                 node_belief[i].append(temp / np.sum(temp, axis=0))
         return node_belief
 
