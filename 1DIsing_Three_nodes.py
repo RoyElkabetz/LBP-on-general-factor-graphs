@@ -15,27 +15,27 @@ g = lbp.Graph()
 
 # nodes
 g.add_node('a', 2)
-#g.add_node('b', 2)
-#g.add_node('c', 2)
+g.add_node('b', 2)
+g.add_node('c', 2)
 
 # interactions
-#g.add_factor('A', np.array([0, 1]), np.array([[k, - k], [- k, k]]))
-#g.add_factor('B', np.array([1, 2]), np.array([[k, - k], [- k, k]]))
-#g.add_factor('C', np.array([2, 0]), np.array([[k, - k], [- k, k]]))
+g.add_factor('A', np.array([0, 1]), np.array([[k, - k], [- k, k]]))
+g.add_factor('B', np.array([1, 2]), np.array([[k, - k], [- k, k]]))
+g.add_factor('C', np.array([2, 0]), np.array([[k, - k], [- k, k]]))
 
 
 # external field
 g.add_factor('ha', np.array([0]), np.array([h, - h]))
-#g.add_factor('hb', np.array([1]), np.array([h, - h]))
-#g.add_factor('hc', np.array([2]), np.array([h, - h]))
+g.add_factor('hb', np.array([1]), np.array([h, - h]))
+g.add_factor('hc', np.array([2]), np.array([h, - h]))
 
-#g.add_factor('H', np.array([3]), np.array([h, - h]))
 
 g.vis_graph()
 z = g.exact_partition()
 F = - np.log(z)
-beliefs = g.sum_product(t_max, 1)
+beliefs, factor_beliefs = g.sum_product(t_max, 1)
 beliefs = np.array(beliefs)
+
 f_mean_field = np.ones(t_max, dtype=float)
 for t in range(t_max):
     f_mean_field[t] = g.mean_field_approx_to_F(beliefs[:, t])

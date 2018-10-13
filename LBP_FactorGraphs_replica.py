@@ -35,6 +35,8 @@ class Graph:
         for i in range(self.node_count):
             alphabet[i] = self.nodes[i][1]
         z = np.ones(np.array(alphabet), dtype=float)
+        #print('complex1')
+        #z = np.ones(np.array(alphabet), dtype=complex)
         for item in self.factors:
             z *= self.factors[item][1]
         for i in range(self.node_count):
@@ -47,12 +49,17 @@ class Graph:
         node2factor = []
         factor2node = {}
         node_belief = []
+        factor_beliefs = {}
+        for item in factors:
+            factor_beliefs[item] = []
         for i in range(self.node_count):
             alphabet = nodes[i][1]
             node2factor.append({})
             node_belief.append([])
             for item in nodes[i][2]:
                 node2factor[i][item] = np.ones(alphabet) / alphabet
+                #print('complex2')
+                #node2factor[i][item] = np.ones(alphabet,dtype=complex) / alphabet
                 node2factor[i][item] = self.broadcasting(node2factor[i][item], np.array([i]))
             node_belief[i].append(np.ones(alphabet) / alphabet)
         for t in range(t_max):
@@ -68,6 +75,7 @@ class Graph:
                         else:
                             vec.remove(neighbors_nodes[j])
                             temp *= node2factor[neighbors_nodes[j]][item]
+                    factor_beliefs[item].append(temp * node2factor[neighbors_nodes[i]][item])
                     temp = np.einsum(temp, range(self.node_count), vec)
                     vec2 = cp.copy(vec)
                     vec2.remove(neighbors_nodes[i])
@@ -78,6 +86,8 @@ class Graph:
                 temp = 1
                 for item in neighbors_factors:
                     node2factor[i][item] = np.ones(alphabet)
+                    #print('complex3')
+                    #node2factor[i][item] = np.ones(alphabet,dtype=complex)
                     node2factor[i][item] = self.broadcasting(node2factor[i][item], np.array([i]))
                     for object in neighbors_factors:
                         if object == item:
@@ -87,7 +97,7 @@ class Graph:
                     node2factor[i][item] /= np.sum(node2factor[i][item], axis=i)
                     temp *= factor2node[item][i]
                 node_belief[i].append(temp / np.sum(temp, axis=0))
-        return node_belief
+        return node_belief, factor_beliefs
 
     def mean_field_approx_to_F(self, node_beliefs):
         factors = self.factors
@@ -103,10 +113,14 @@ class Graph:
             for i in range(len(summing_order)):
                 temp = np.sum(temp, axis=summing_order[i])
             temp = np.reshape(temp, [1])
+            #print('complex4 - abs')
+            #energy += np.abs(temp)
             energy += temp
         temp = 0
         for i in range(self.node_count):
             temp += np.dot(node_beliefs[i], np.log(node_beliefs[i]))
+        #print('complex5 - abs')
+        #entropy = - np.abs(temp)
         entropy = - temp
         F_approx = energy - entropy
         return F_approx
