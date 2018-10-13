@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import copy as cp
 
 
-
 class Graph:
 
     def __init__(self):
@@ -124,6 +123,38 @@ class Graph:
         entropy = - temp
         F_approx = energy - entropy
         return F_approx
+
+    def bethe_approx_to_F(self, node_beliefs, factor_beliefs):
+        factors = self.factors
+        energy = 0
+        entropy = 0
+        for item in factors:
+            temp = cp.deepcopy(factors[item][1])
+            neighbors = cp.deepcopy(factors[item][0])
+            summing_order = np.flip(np.sort(neighbors), axis=0)
+            temp = - np.log(temp)
+            for i in range(len(neighbors)):
+                #temp *= self.broadcasting(node_beliefs[neighbors[i]], np.array([neighbors[i]]))
+                temp *= factor_beliefs[item]
+            for i in range(len(summing_order)):
+                temp = np.sum(temp, axis=summing_order[i])
+            temp = np.reshape(temp, [1])
+            #print('complex4 - abs')
+            #energy += np.abs(temp)
+            energy += temp
+        temp = 0
+        for item in factors:
+            if len(factors[item][0]) == 2:
+                temp += np.einsum(np.reshape(factor_beliefs[item] * np.log(factor_beliefs[item]), [2, 2]), [0, 1], [])
+            if len(factors[item][0]) == 1:
+                temp += np.einsum(np.reshape(factor_beliefs[item] * np.log(factor_beliefs[item]), [2]), [0], [])
+                for i in range(len(factors[item][0])):
+                    temp -= np.dot(node_beliefs[factors[item][0][i]], np.log(node_beliefs[factors[item][0][i]]))
+        #print('complex5 - abs')
+        #entropy = - np.abs(temp)
+        entropy = - temp
+        F_bethe_approx = energy - entropy
+        return F_bethe_approx
 
     def vis_graph(self):
         node_keys = []

@@ -37,8 +37,13 @@ beliefs, factor_beliefs = g.sum_product(t_max, 1)
 beliefs = np.array(beliefs)
 
 f_mean_field = np.ones(t_max, dtype=float)
+f_bethe = np.ones(t_max, dtype=float)
 for t in range(t_max):
+    factor_beliefs_for_F = {}
+    for item in factor_beliefs:
+        factor_beliefs_for_F[item] = factor_beliefs[item][t]
     f_mean_field[t] = g.mean_field_approx_to_F(beliefs[:, t])
+    f_bethe[t] = g.bethe_approx_to_F(beliefs[:, t], factor_beliefs_for_F)
 
 plt.figure()
 for i in range(g.node_count):
@@ -46,6 +51,7 @@ for i in range(g.node_count):
 plt.show()
 
 plt.figure()
-plt.plot(range(t_max), f_mean_field, 'o')
-plt.plot(range(t_max), np.ones(t_max, dtype=float) * F, 'o')
+plt.plot(range(t_max), f_mean_field, 's')
+plt.plot(range(t_max), f_bethe, 'o')
+plt.plot(range(t_max), np.ones(t_max, dtype=float) * F)
 plt.show()
