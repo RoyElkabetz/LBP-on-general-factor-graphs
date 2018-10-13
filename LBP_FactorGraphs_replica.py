@@ -73,9 +73,12 @@ class Graph:
                     vec2.remove(neighbors_nodes[i])
                     factor2node[item][neighbors_nodes[i]] = np.reshape(temp / np.einsum(temp, vec, vec2), nodes[neighbors_nodes[i]][1])
             for i in range(self.node_count):
+                alphabet = nodes[i][1]
                 neighbors_factors = nodes[i][2]
                 temp = 1
                 for item in neighbors_factors:
+                    node2factor[i][item] = np.ones(alphabet)
+                    node2factor[i][item] = self.broadcasting(node2factor[i][item], np.array([i]))
                     for object in neighbors_factors:
                         if object == item:
                             continue
@@ -92,11 +95,14 @@ class Graph:
         entropy = 0
         for item in factors:
             temp = cp.deepcopy(factors[item][1])
-            temp =  np.log(temp)
-            for i in range(len(factors[item][0])):
-                temp *= self.broadcasting(node_beliefs[factors[item][0][i]], np.array([factors[item][0][i]]))
-            for i in range(self.node_count):
-                temp = np.sum(temp, axis=0)
+            neighbors = cp.deepcopy(factors[item][0])
+            summing_order = np.flip(np.sort(neighbors), axis=0)
+            temp = - np.log(temp)
+            for i in range(len(neighbors)):
+                temp *= self.broadcasting(node_beliefs[neighbors[i]], np.array([neighbors[i]]))
+            for i in range(len(summing_order)):
+                temp = np.sum(temp, axis=summing_order[i])
+            temp = np.reshape(temp, [1])
             energy += temp
         temp = 0
         for i in range(self.node_count):
