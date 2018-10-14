@@ -57,11 +57,13 @@ for t in range(t_max):
     f_mean_field[t] = g.mean_field_approx_to_F(beliefs[:, t])
 
 plt.figure()
+plt.title('Single node marginals')
 for i in range(g.node_count):
     plt.plot(range(t_max + 1), beliefs[i], 'o')
 plt.show()
 
 plt.figure()
+plt.title('Free energies')
 plt.plot(range(t_max), f_mean_field, 'o')
 plt.plot(range(t_max), np.ones(t_max, dtype=float) * F, 'o')
 plt.show()
