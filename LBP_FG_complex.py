@@ -58,7 +58,7 @@ class Graph:
             for item in nodes[i][2]:
                 #node2factor[i][item] = np.ones(alphabet) / alphabet
                 #print('complex2')
-                node2factor[i][item] = np.ones(alphabet,dtype=complex) / alphabet
+                node2factor[i][item] = np.ones(alphabet, dtype=complex) / alphabet
                 node2factor[i][item] = self.broadcasting(node2factor[i][item], np.array([i]))
             node_belief[i].append(np.ones(alphabet) / alphabet)
         for t in range(t_max):
