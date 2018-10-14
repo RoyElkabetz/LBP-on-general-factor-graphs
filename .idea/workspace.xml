@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5edcd4d9-7ca2-49ac-802a-1a46fe3967ac" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/1DIsing_Three_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/1DIsing_Three_nodes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1DIsing_complex_wights.py" beforeDir="false" afterPath="$PROJECT_DIR$/1DIsing_complex_wights.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LBP_FG_complex.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FG_complex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +40,8 @@
       <file leaf-file-name="1DIsing_Three_nodes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1DIsing_Three_nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+            <state relative-caret-position="1485">
+              <caret line="99" column="56" selection-start-line="99" selection-start-column="56" selection-end-line="99" selection-end-column="56" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -54,8 +52,8 @@
       <file leaf-file-name="1DIsing_complex_wights.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1DIsing_complex_wights.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="18" selection-start-line="67" selection-end-line="68" />
+            <state relative-caret-position="317">
+              <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -75,8 +73,8 @@
       <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1242">
-              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="405">
+              <caret line="172" column="22" lean-forward="true" selection-start-line="172" selection-start-column="22" selection-end-line="172" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -106,8 +104,8 @@
         <option value="$PROJECT_DIR$/1DIsing_replica.py" />
         <option value="$PROJECT_DIR$/LBP_FG_complex.py" />
         <option value="$PROJECT_DIR$/1DIsing_complex_wights.py" />
-        <option value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
         <option value="$PROJECT_DIR$/1DIsing_Three_nodes.py" />
+        <option value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
       </list>
     </option>
   </component>
@@ -120,10 +118,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="40" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="787" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -293,7 +291,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="800" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -306,7 +304,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21387696" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" weight="0.3297568" />
-      <window_info active="true" anchor="right" id="SciView" visible="true" weight="0.3297568" />
+      <window_info anchor="right" id="SciView" weight="0.6101574" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40256044" />
       <window_info id="Favorites" side_tool="true" />
@@ -403,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1DIsing_Three_nodes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+        <state relative-caret-position="1485">
+          <caret line="99" column="56" selection-start-line="99" selection-start-column="56" selection-end-line="99" selection-end-column="56" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -413,8 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1DIsing_complex_wights.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="18" selection-start-line="67" selection-end-line="68" />
+        <state relative-caret-position="317">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -430,8 +428,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1242">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        <state relative-caret-position="405">
+          <caret line="172" column="22" lean-forward="true" selection-start-line="172" selection-start-column="22" selection-end-line="172" selection-end-column="22" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

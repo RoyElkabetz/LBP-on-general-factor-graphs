@@ -19,17 +19,27 @@ g = lbp.Graph()
 g.add_node('a', 2)
 g.add_node('b', 2)
 g.add_node('c', 2)
+#g.add_node('d', 2)
+#g.add_node('e', 2)
+
+
 
 # interactions
 g.add_factor('A', np.array([0, 1]), np.array([[k, - k], [- k, k]]))
 g.add_factor('B', np.array([1, 2]), np.array([[k, - k], [- k, k]]))
 g.add_factor('C', np.array([2, 0]), np.array([[k, - k], [- k, k]]))
+#g.add_factor('D', np.array([3, 4]), np.array([[k, - k], [- k, k]]))
+#g.add_factor('E', np.array([4, 0]), np.array([[k, - k], [- k, k]]))
+
 
 
 # external field
 g.add_factor('ha', np.array([0]), np.array([h, - h]))
 g.add_factor('hb', np.array([1]), np.array([h, - h]))
 g.add_factor('hc', np.array([2]), np.array([h, - h]))
+#g.add_factor('hd', np.array([3]), np.array([h, - h - 0.4]))
+#g.add_factor('he', np.array([4]), np.array([h, - h - 0.5]))
+
 
 # Running the algorithm
 g.vis_graph()
@@ -46,7 +56,7 @@ f_bethe = np.ones(t_max, dtype=float)
 for i in range(g.node_count):
     beliefs_from_factor_beliefs.append({})
     for item in g.nodes[i][2]:
-        beliefs_from_factor_beliefs[i][item] = []
+        beliefs_from_factor_beliefs[i][item] = np.ones([t_max, 2])
 
 # Calculating single node beliefs from factor beliefs
 for t in range(t_max):
@@ -61,7 +71,7 @@ for t in range(t_max):
             normalization = np.einsum(normalization, neighbors_of_item, [i])
             belief_of_i_from_item_at_t = cp.copy(normalization)
             normalization = np.reshape(np.sum(normalization, axis=0), [1])
-            beliefs_from_factor_beliefs[i][item].append(belief_of_i_from_item_at_t / normalization)
+            beliefs_from_factor_beliefs[i][item][t] *= (belief_of_i_from_item_at_t / normalization)
 
 # Calculating free energies
 for t in range(t_max):
@@ -80,10 +90,17 @@ plt.show()
 
 plt.figure()
 plt.title('Single node marginals calculated from factor beliefs')
-for i in range(g.node_count):
-    for item in g.nodes[i][2]:
-        plt.plot(range(t_max), beliefs_from_factor_beliefs[i][item], 'o')
+#for i in range(g.node_count):
+label = []
+i = 1
+for item in g.nodes[i][2]:
+    label.append(item)
+    label.append(item)
+    plt.plot(range(t_max), beliefs_from_factor_beliefs[i][item][:, 0], 'o')
+    plt.plot(range(t_max), beliefs_from_factor_beliefs[i][item][:, 1], 'o')
+plt.legend(label)
 plt.show()
+
 
 
 plt.figure()
