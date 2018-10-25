@@ -1,78 +1,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import LBP_FactorGraphs_replica as lbp
-import copy as cp
 
 
 '''
-    1D Ising model with cyclic BC 
+    2D Ising model with cyclic BC 
 '''
 
 # parameters
 h = 0.1
 k = 1
-t_max = 1000
+t_max = 30
+N = 25
+L = int(np.sqrt(N))
+alphabet = 2
+grid = np.reshape([range(N)], [L, L])
 
 # name of graph
 g = lbp.Graph()
 
 # nodes
-g.add_node('a', 2)
-g.add_node('b', 2)
-g.add_node('c', 2)
-g.add_node('d', 2)
-g.add_node('e', 2)
-g.add_node('f', 2)
-g.add_node('g', 2)
-g.add_node('h', 2)
-g.add_node('i', 2)
-g.add_node('j', 2)
-g.add_node('k', 2)
-g.add_node('l', 2)
-g.add_node('m', 2)
-g.add_node('n', 2)
-g.add_node('o', 2)
+for i in range(N):
+    g.add_node(str(i), alphabet)
 
-
+# external fields
+for i in range(N):
+    g.add_factor('h' + str(i), np.array([i]), np.array([h, - h]))
 
 # interactions
-g.add_factor('A', np.array([0, 1]), np.array([[k, - k], [- k, k]]))
-g.add_factor('B', np.array([1, 2]), np.array([[k, - k], [- k, k]]))
-g.add_factor('C', np.array([2, 3]), np.array([[k, - k], [- k, k]]))
-g.add_factor('D', np.array([3, 4]), np.array([[k, - k], [- k, k]]))
-g.add_factor('E', np.array([4, 5]), np.array([[k, - k], [- k, k]]))
-g.add_factor('F', np.array([5, 6]), np.array([[k, - k], [- k, k]]))
-g.add_factor('G', np.array([6, 7]), np.array([[k, - k], [- k, k]]))
-g.add_factor('H', np.array([7, 8]), np.array([[k, - k], [- k, k]]))
-g.add_factor('I', np.array([8, 9]), np.array([[k, - k], [- k, k]]))
-g.add_factor('J', np.array([9, 10]), np.array([[k, - k], [- k, k]]))
-g.add_factor('K', np.array([10, 11]), np.array([[k, - k], [- k, k]]))
-g.add_factor('L', np.array([11, 12]), np.array([[k, - k], [- k, k]]))
-g.add_factor('M', np.array([12, 13]), np.array([[k, - k], [- k, k]]))
-g.add_factor('N', np.array([13, 14]), np.array([[k, - k], [- k, k]]))
-g.add_factor('O', np.array([14, 0]), np.array([[k, - k], [- k, k]]))
-g.add_factor('P', np.array([4, 11]), np.array([[k, - k], [- k, k]]))
-g.add_factor('Q', np.array([2, 7]), np.array([[k, - k], [- k, k]]))
-g.add_factor('R', np.array([3, 14]), np.array([[k, - k], [- k, k]]))
-
-
-# external field
-g.add_factor('ha', np.array([0]), np.array([h, - h]))
-g.add_factor('hb', np.array([1]), np.array([h, - h]))
-g.add_factor('hc', np.array([2]), np.array([h, - h]))
-g.add_factor('hd', np.array([3]), np.array([h, - h]))
-g.add_factor('he', np.array([4]), np.array([h, - h]))
-g.add_factor('hf', np.array([5]), np.array([h, - h]))
-g.add_factor('hg', np.array([6]), np.array([h, - h]))
-g.add_factor('hh', np.array([7]), np.array([h, - h]))
-g.add_factor('hi', np.array([8]), np.array([h, - h]))
-g.add_factor('hj', np.array([9]), np.array([h, - h]))
-g.add_factor('hk', np.array([10]), np.array([h, - h]))
-g.add_factor('hl', np.array([11]), np.array([h, - h]))
-g.add_factor('hm', np.array([12]), np.array([h, - h]))
-g.add_factor('hn', np.array([13]), np.array([h, - h]))
-g.add_factor('ho', np.array([14]), np.array([h, - h]))
-
+for i in range(L):
+    for j in range(L):
+        g.add_factor(str(grid[i, j]) + str(grid[i, np.mod(j + 1, L)]), np.array([grid[i, j], grid[i, np.mod(j + 1, L)]]), np.array([[k, - k], [- k, k]]))
+        g.add_factor(str(grid[i, j]) + str(grid[np.mod(i + 1, L), j]), np.array([grid[i, j], grid[np.mod(i + 1, L), j]]), np.array([[k, - k], [- k, k]]))
 
 
 # Implementing the algorithm
@@ -86,8 +45,6 @@ beliefs_from_factors_to_energy = np.zeros([g.node_count, t_max + 1, 2], dtype=fl
 f_mean_field = np.ones(t_max, dtype=float)
 f_mean_field_from_factor_beliefs = np.ones(t_max, dtype=float)
 f_bethe = np.ones(t_max, dtype=float)
-
-
 
 
 # Initialization of single node beliefs calculated from factor beliefs
