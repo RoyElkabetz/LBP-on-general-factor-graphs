@@ -29,7 +29,8 @@ class Graph:
         self.factors_count += 1
         self.factors[factor_name] = [factor_nodes, self.broadcasting(np.exp(- boltzmann_factor), factor_nodes)]
 
-    def vis_graph(self):
+    def vis_graph(self, flag):
+        L = np.int(np.sqrt(self.node_count))
         node_keys = []
         for i in range(self.node_count):
             node_keys.append(self.nodes[i][0])
@@ -42,19 +43,52 @@ class Graph:
         pos = {}
         i = 0
         j = 0
-        for item in range(self.node_count):
-            temp = cp.copy(self.nodes[item][0])
-            node_pos[temp] = [i, j]
-            pos[temp] = [i, j]
-            i += 1
-            for key in self.nodes[item][2]:
-                G.add_edge(temp, key)
-        i = 0
-        j += 1
-        for item in self.factors:
-            factor_pos[item] = [i, j]
-            pos[item] = [i, j]
-            i += 1
+        if flag == 'grid':
+            for n in range(L):
+                for m in range(L):
+                    node_name = self.nodes[i][0]
+                    node_name_right = self.nodes[n * L + np.mod(i + 1, L)][0]
+                    node_name_down = self.nodes[np.mod(i + L, L * L)][0]
+                    node_pos[node_name] = [n, m]
+                    pos[node_name] = [n, m]
+                    factor_name_right = 'I' + str(n * L + m) + ',' + str(n * L + np.mod(m + 1, L))
+                    factor_name_down = 'I' + str(n * L + m) + ',' + str(np.mod(n + 1, L) * L + m)
+                    factor_name_field = 'h' + str(i)
+                    factor_pos[factor_name_right] = [n, m + 0.5]
+                    factor_pos[factor_name_down] = [n + 0.5, m]
+                    factor_pos[factor_name_field] = [n + 0.25, m + 0.25]
+                    pos[factor_name_right] = [n, m + 0.5]
+                    pos[factor_name_down] = [n + 0.5, m]
+                    pos[factor_name_field] = [n + 0.25, m + 0.25]
+                    G.add_edge(node_name, factor_name_right)
+                    G.add_edge(node_name_right, factor_name_right)
+                    G.add_edge(node_name, factor_name_down)
+                    G.add_edge(node_name_down, factor_name_down)
+                    G.add_edge(node_name, factor_name_field)
+                    print('[' + str(n) + ',' + str(m) + ']')
+                    print(i)
+                    print(str(node_name) + ',' + str(factor_name_right))
+                    print(str(node_name_right) + ',' + str(factor_name_right))
+                    print(str(node_name) + ',' + str(factor_name_down))
+                    print(str(node_name_down) + ',' + str(factor_name_down))
+                    print(str(node_name) + ',' + str(factor_name_field))
+                    print('\n')
+                    i += 1
+
+        if flag == 'no_grid':
+            for item in range(self.node_count):
+                temp = cp.copy(self.nodes[item][0])
+                node_pos[temp] = [i, j]
+                pos[temp] = [i, j]
+                i += 1
+                for key in self.nodes[item][2]:
+                    G.add_edge(temp, key)
+            i = 0
+            j += 1
+            for item in self.factors:
+                factor_pos[item] = [i, j]
+                pos[item] = [i, j]
+                i += 1
         node_sub = G.subgraph(node_keys)
         factor_sub = G.subgraph(factor_keys)
         plt.figure()

@@ -11,10 +11,12 @@ import LBP_FactorGraphs_replica as lbp
 h = 0.1
 k = 1
 t_max = 30
-N = 25
+N = 16
 L = int(np.sqrt(N))
 alphabet = 2
 grid = np.reshape([range(N)], [L, L])
+vis = 'grid'
+
 
 # name of graph
 g = lbp.Graph()
@@ -30,13 +32,13 @@ for i in range(N):
 # interactions
 for i in range(L):
     for j in range(L):
-        g.add_factor(str(grid[i, j]) + str(grid[i, np.mod(j + 1, L)]), np.array([grid[i, j], grid[i, np.mod(j + 1, L)]]), np.array([[k, - k], [- k, k]]))
-        g.add_factor(str(grid[i, j]) + str(grid[np.mod(i + 1, L), j]), np.array([grid[i, j], grid[np.mod(i + 1, L), j]]), np.array([[k, - k], [- k, k]]))
+        g.add_factor('I' + str(grid[i, j]) + ',' + str(grid[i, np.mod(j + 1, L)]), np.array([grid[i, j], grid[i, np.mod(j + 1, L)]]), np.array([[k, - k], [- k, k]]))
+        g.add_factor('I' + str(grid[i, j]) + ',' + str(grid[np.mod(i + 1, L), j]), np.array([grid[i, j], grid[np.mod(i + 1, L), j]]), np.array([[k, - k], [- k, k]]))
 
 
 # Implementing the algorithm
 
-#g.vis_graph()
+g.vis_graph(vis)
 z = g.exact_partition()
 F = - np.log(z)
 beliefs, factor_beliefs = g.sum_product(t_max, 1)

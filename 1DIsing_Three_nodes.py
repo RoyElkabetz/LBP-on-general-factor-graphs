@@ -12,6 +12,7 @@ import copy as cp
 h = 0.1
 k = 1
 t_max = 1000
+vis = 'no_grid'
 
 # name of graph
 g = lbp.Graph()
@@ -77,7 +78,7 @@ g.add_factor('ho', np.array([14]), np.array([h, - h]))
 
 # Implementing the algorithm
 
-#g.vis_graph()
+#g.vis_graph(vis)
 z = g.exact_partition()
 F = - np.log(z)
 beliefs, factor_beliefs = g.sum_product(t_max, 1)
