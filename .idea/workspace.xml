@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5edcd4d9-7ca2-49ac-802a-1a46fe3967ac" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Tree_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1DIsing_Three_nodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/1DIsing_Three_nodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1DIsing_replica.py" beforeDir="false" afterPath="$PROJECT_DIR$/1DIsing_replica.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2D_Ising_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_Ising_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" afterDir="false" />
     </list>
@@ -17,11 +20,12 @@
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$LBP_FactorGraphs_replica.coverage" NAME="LBP_FactorGraphs_replica Coverage Results" MODIFIED="1538135555434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing_replica.coverage" NAME="1DIsing_replica Coverage Results" MODIFIED="1539435092248" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing_complex_wights.coverage" NAME="1DIsing_complex_wights Coverage Results" MODIFIED="1539499555876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$2D_Ising_model.coverage" NAME="2D_Ising_model Coverage Results" MODIFIED="1540675125655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$2D_Ising_model.coverage" NAME="2D_Ising_model Coverage Results" MODIFIED="1540818630350" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$LBP_FactorGraphs.coverage" NAME="LBP_FactorGraphs Coverage Results" MODIFIED="1537881649644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing_Three_nodes.coverage" NAME="1DIsing_Three_nodes Coverage Results" MODIFIED="1540449627535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing_Three_nodes.coverage" NAME="1DIsing_Three_nodes Coverage Results" MODIFIED="1540838757263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$1DIsing.coverage" NAME="1DIsing Coverage Results" MODIFIED="1537270228465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$broadcasting_ex.coverage" NAME="broadcasting_ex Coverage Results" MODIFIED="1537882956823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/LBP_on_general_factor_graphs$Tree_model.coverage" NAME="Tree_model Coverage Results" MODIFIED="1540838395597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -39,11 +43,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="1DIsing_Three_nodes.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="1DIsing_Three_nodes.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/1DIsing_Three_nodes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+            <state relative-caret-position="309">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tree_model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tree_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3200">
+              <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -54,8 +70,8 @@
       <file leaf-file-name="2D_Ising_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+            <state relative-caret-position="214">
+              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -63,13 +79,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LBP_FactorGraphs_replica.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="53" column="66" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+            <state relative-caret-position="201">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="48" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#1052#4090#0" />
               </folding>
             </state>
           </provider>
@@ -94,13 +111,14 @@
         <option value="$PROJECT_DIR$/1DIsing.py" />
         <option value="$PROJECT_DIR$/broadcasting_ex.py" />
         <option value="$PROJECT_DIR$/LBP_FactorGraphs.py" />
-        <option value="$PROJECT_DIR$/1DIsing_replica.py" />
         <option value="$PROJECT_DIR$/LBP_FG_complex.py" />
         <option value="$PROJECT_DIR$/1DIsing_complex_wights.py" />
         <option value="$PROJECT_DIR$/functions.py" />
-        <option value="$PROJECT_DIR$/1DIsing_Three_nodes.py" />
+        <option value="$PROJECT_DIR$/1DIsing_replica.py" />
         <option value="$PROJECT_DIR$/2D_Ising_model.py" />
         <option value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
+        <option value="$PROJECT_DIR$/Tree_model.py" />
+        <option value="$PROJECT_DIR$/1DIsing_Three_nodes.py" />
       </list>
     </option>
   </component>
@@ -159,7 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.2D_Ising_model">
+  <component name="RunManager" selected="Python.1DIsing_Three_nodes">
     <configuration name="1DIsing_Three_nodes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LBP-on-general-factor-graphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -236,7 +254,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="LBP_FactorGraphs_replica" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Tree_model" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LBP-on-general-factor-graphs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -249,26 +267,26 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tree_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.LBP_FactorGraphs_replica" />
       <item itemvalue="Python.1DIsing_replica" />
       <item itemvalue="Python.1DIsing_Three_nodes" />
       <item itemvalue="Python.1DIsing_complex_wights" />
       <item itemvalue="Python.2D_Ising_model" />
+      <item itemvalue="Python.Tree_model" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.2D_Ising_model" />
         <item itemvalue="Python.1DIsing_Three_nodes" />
+        <item itemvalue="Python.2D_Ising_model" />
+        <item itemvalue="Python.Tree_model" />
         <item itemvalue="Python.1DIsing_complex_wights" />
         <item itemvalue="Python.1DIsing_replica" />
-        <item itemvalue="Python.LBP_FactorGraphs_replica" />
       </list>
     </recent_temporary>
   </component>
@@ -301,7 +319,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32859176" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5007153" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.3371266" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.3371266" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.25142857" />
       <window_info anchor="bottom" id="Terminal" />
@@ -309,7 +327,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" weight="0.3297568" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32859176" />
-      <window_info anchor="right" id="SciView" weight="0.51216024" />
+      <window_info anchor="right" id="SciView" visible="true" weight="0.51216024" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40256044" />
       <window_info id="Favorites" side_tool="true" />
@@ -352,13 +370,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2D_Ising_model.py</url>
-          <line>41</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -366,7 +377,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="103" />
+      <option name="time" value="109" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -421,16 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1DIsing_complex_wights.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -465,20 +466,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1DIsing_Three_nodes.py">
+    <entry file="file://$PROJECT_DIR$/1DIsing_replica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+        <state relative-caret-position="329">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -487,8 +478,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="53" column="66" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+        <state relative-caret-position="201">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1052#4090#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tree_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3200">
+          <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/1DIsing_Three_nodes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

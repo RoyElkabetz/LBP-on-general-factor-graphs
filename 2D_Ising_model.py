@@ -11,7 +11,7 @@ import LBP_FactorGraphs_replica as lbp
 h = 0.1
 k = 1
 t_max = 30
-N = 16
+N = 4
 L = int(np.sqrt(N))
 alphabet = 2
 grid = np.reshape([range(N)], [L, L])
@@ -19,21 +19,21 @@ vis = 'grid'
 
 
 # name of graph
-g = lbp.Graph()
+g = lbp.Graph(N)
 
 # nodes
 for i in range(N):
-    g.add_node(str(i), alphabet)
+    g.add_node(alphabet)
 
 # external fields
 for i in range(N):
-    g.add_factor('h' + str(i), np.array([i]), np.array([h, - h]))
+    g.add_factor(np.array([i]), np.array([h, - h]))
 
 # interactions
 for i in range(L):
     for j in range(L):
-        g.add_factor('I' + str(grid[i, j]) + ',' + str(grid[i, np.mod(j + 1, L)]), np.array([grid[i, j], grid[i, np.mod(j + 1, L)]]), np.array([[k, - k], [- k, k]]))
-        g.add_factor('I' + str(grid[i, j]) + ',' + str(grid[np.mod(i + 1, L), j]), np.array([grid[i, j], grid[np.mod(i + 1, L), j]]), np.array([[k, - k], [- k, k]]))
+        g.add_factor(np.array([grid[i, j], grid[i, np.mod(j + 1, L)]]), np.array([[k, - k], [- k, k]]))
+        g.add_factor(np.array([grid[i, j], grid[np.mod(i + 1, L), j]]), np.array([[k, - k], [- k, k]]))
 
 
 # Implementing the algorithm

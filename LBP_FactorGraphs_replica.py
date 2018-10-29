@@ -6,22 +6,28 @@ import copy as cp
 
 class Graph:
 
-    def __init__(self):
+    def __init__(self, number_of_nodes=None):
         self.node_count = 0
         self.factors = {}
         self.nodes = []
         self.factors_count = 0
+        self.number_of_nodes = number_of_nodes
 
-    def add_node(self, node_name, alphabet_size):
-        self.node_count += 1
+    def add_node(self, alphabet_size, node_name=None):
+        node_name = 'n' + str(self.node_count)
         self.nodes.append([node_name, alphabet_size, set()])
+        self.node_count += 1
+        return self.node_count
 
     def broadcasting(self, factor, nodes):
-        new_shape = np.ones(self.node_count, dtype=np.int)
+        new_shape = np.ones(self.number_of_nodes, dtype=np.int)
         new_shape[nodes] = np.shape(factor)
         return np.reshape(factor, new_shape)
 
-    def add_factor(self, factor_name, factor_nodes, boltzmann_factor):
+    def add_factor(self, factor_nodes, boltzmann_factor, factor_name=None):
+        factor_name = 'F'
+        for i in range(len(factor_nodes)):
+            factor_name += ',' + str(factor_nodes[i])
         for i in range(len(factor_nodes)):
             if factor_nodes[i] > self.node_count:
                 raise IndexError('Tried to factor non exciting node')
@@ -40,6 +46,7 @@ class Graph:
         G.add_nodes_from(factor_keys)
         node_pos = {}
         factor_pos = {}
+        field_pos = {}
         pos = {}
         i = 0
         j = 0
@@ -51,9 +58,9 @@ class Graph:
                     node_name_down = self.nodes[np.mod(i + L, L * L)][0]
                     node_pos[node_name] = [n, m]
                     pos[node_name] = [n, m]
-                    factor_name_right = 'I' + str(n * L + m) + ',' + str(n * L + np.mod(m + 1, L))
-                    factor_name_down = 'I' + str(n * L + m) + ',' + str(np.mod(n + 1, L) * L + m)
-                    factor_name_field = 'h' + str(i)
+                    factor_name_right = 'F,' + str(n * L + m) + ',' + str(n * L + np.mod(m + 1, L))
+                    factor_name_down = 'F,' + str(n * L + m) + ',' + str(np.mod(n + 1, L) * L + m)
+                    factor_name_field = 'F,' + str(i)
                     factor_pos[factor_name_right] = [n, m + 0.5]
                     factor_pos[factor_name_down] = [n + 0.5, m]
                     factor_pos[factor_name_field] = [n + 0.25, m + 0.25]
@@ -65,15 +72,15 @@ class Graph:
                     G.add_edge(node_name, factor_name_down)
                     G.add_edge(node_name_down, factor_name_down)
                     G.add_edge(node_name, factor_name_field)
-                    print('[' + str(n) + ',' + str(m) + ']')
-                    print(i)
-                    print(str(node_name) + ',' + str(factor_name_right))
-                    print(str(node_name_right) + ',' + str(factor_name_right))
-                    print(str(node_name) + ',' + str(factor_name_down))
-                    print(str(node_name_down) + ',' + str(factor_name_down))
-                    print(str(node_name) + ',' + str(factor_name_field))
-                    print('\n')
                     i += 1
+
+            node_sub = G.subgraph(node_keys)
+            factor_sub = G.subgraph(factor_keys)
+            plt.figure()
+            nx.draw_networkx(node_sub, pos=node_pos, node_color='b', node_shape='o', node_size=200)
+            nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s', node_size=300)
+            nx.draw_networkx_edges(G, pos=pos)
+            plt.show()
 
         if flag == 'no_grid':
             for item in range(self.node_count):
@@ -89,13 +96,13 @@ class Graph:
                 factor_pos[item] = [i, j]
                 pos[item] = [i, j]
                 i += 1
-        node_sub = G.subgraph(node_keys)
-        factor_sub = G.subgraph(factor_keys)
-        plt.figure()
-        nx.draw_networkx(node_sub, pos=node_pos, node_color='b', node_shape='o', node_size=200)
-        nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s')
-        nx.draw_networkx_edges(G, pos=pos)
-        plt.show()
+            node_sub = G.subgraph(node_keys)
+            factor_sub = G.subgraph(factor_keys)
+            plt.figure()
+            nx.draw_networkx(node_sub, pos=node_pos, node_color='b', node_shape='o', node_size=200)
+            nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s', node_size=500)
+            nx.draw_networkx_edges(G, pos=pos)
+            plt.show()
 
     def exact_partition(self):
         alphabet = np.zeros(self.node_count, dtype=np.int)
@@ -120,7 +127,7 @@ class Graph:
             Initialization of messages and beliefs
         '''
         for item in factors:
-            factor_beliefs[item] = []
+            factor_beliefs[item] = [cp.deepcopy(factors[item][1]) / np.sum(cp.deepcopy(factors[item][1]))]
 
         for i in range(self.node_count):
             alphabet = nodes[i][1]
