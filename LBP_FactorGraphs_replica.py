@@ -82,7 +82,7 @@ class Graph:
             nx.draw_networkx_edges(G, pos=pos)
             plt.show()
 
-        if flag == 'no_grid':
+        if flag == 'no grid':
             for item in range(self.node_count):
                 temp = cp.copy(self.nodes[item][0])
                 node_pos[temp] = [i, j]
@@ -103,6 +103,9 @@ class Graph:
             nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s', node_size=500)
             nx.draw_networkx_edges(G, pos=pos)
             plt.show()
+
+        if flag == 'no vis':
+            return
 
     def exact_partition(self):
         alphabet = np.zeros(self.node_count, dtype=np.int)

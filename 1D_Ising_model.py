@@ -3,20 +3,15 @@ import LBP_FactorGraphs_replica as lbp
 import Calculations_and_Plots as cplot
 
 
-
 '''
-    Tree model
+    1D Ising model
 '''
 
 # parameters
 h = 0.1
 k = 1
-t_max = 30
-n = 4
-N = 0
-N_of_sons = 2
-for i in range(n):
-    N += N_of_sons ** i
+t_max = 100
+N = 5
 alpha = 2
 
 # flags
@@ -28,20 +23,16 @@ free_energies = 1
 
 # name of graph
 g = lbp.Graph(N)
-g.add_node(alpha)
 
+# nodes
+for i in range(N):
+    g.add_node(alpha)
 
 # interactions
-def append_children(graph, root_node, number_of_childrens, remaining_depth):
-    if remaining_depth == 0:
-        return 'done'
-    for c in range(number_of_childrens):
-        child = graph.add_node(alpha) - 1
-        graph.add_factor(np.array([root_node, child]), np.array([[k, - k], [- k, k]]))
-        append_children(graph, child, number_of_childrens, remaining_depth - 1)
+for i in range(N - 1):
+    g.add_factor(np.array([i, i + 1]), np.array([[k, - k], [- k, k]]))
+#g.add_factor(np.array([N - 1, 0]), np.array([[k, - k], [- k, k]]))  # periodic BC
 
-
-append_children(g, 0, N_of_sons, n - 1)
 
 # external field
 for i in range(N):
