@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import LBP_FactorGraphs_replica as lbp
 
 '''
     Implementing the SumProduct and calculating marginals and free energies
@@ -31,6 +32,25 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
             for item in g.nodes[i][2]:
                 beliefs_from_factor_beliefs[i][item][t] *= (np.einsum(factor_beliefs[item][t], range(g.node_count), [i]) / np.sum(factor_beliefs[item][t]))
             beliefs_from_factors_to_energy[i, t] += beliefs_from_factor_beliefs[i][item][t]
+
+    # Calculating the approximated joint distribution for a tree like graph
+    shape_of_joint = []
+    for i in range(g.node_count):
+        shape_of_joint.append(g.nodes[i][1])
+    joint = np.ones(shape_of_joint, dtype=float)
+    real_joint = np.ones(shape_of_joint, dtype=float)
+    for item in factor_beliefs:
+        joint *= factor_beliefs[item][t_max]
+        real_joint *= g.factors[item][1]
+    for i in range(g.node_count):
+        joint /= (lbp.Graph.broadcasting(g, np.array(beliefs[i, t_max]), np.array([i]))) ** (len(g.nodes[i][2]) - 1)
+    KL_divergence = - np.sum(joint * np.log(joint / real_joint))
+    print('\n')
+    print('KL_divergence = ')
+    print(KL_divergence)
+    print('\n')
+    print(np.sum(joint))
+
 
     # Calculating free energies
     for t in range(t_max + 1):
