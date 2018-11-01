@@ -33,7 +33,7 @@ class Graph:
                 raise IndexError('Tried to factor non exciting node')
             self.nodes[factor_nodes[i]][2].add(factor_name)
         self.factors_count += 1
-        self.factors[factor_name] = [factor_nodes, self.broadcasting(np.exp(- boltzmann_factor), factor_nodes)]
+        self.factors[factor_name] = [factor_nodes, self.broadcasting(np.exp( boltzmann_factor), factor_nodes)]
 
     def vis_graph(self, flag):
         L = np.int(np.sqrt(self.node_count))

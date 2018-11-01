@@ -11,7 +11,7 @@ import Calculations_and_Plots as cplot
 h = 0.1
 k = 1
 t_max = 100
-N = 5
+N = 4
 alpha = 2
 
 # flags
@@ -20,6 +20,8 @@ single_node = 1
 single_node_from_factors = 1
 compare = 0
 free_energies = 1
+joint_flag = 1
+
 
 # name of graph
 g = lbp.Graph(N)
@@ -31,7 +33,7 @@ for i in range(N):
 # interactions
 for i in range(N - 1):
     g.add_factor(np.array([i, i + 1]), np.array([[k, - k], [- k, k]]))
-#g.add_factor(np.array([N - 1, 0]), np.array([[k, - k], [- k, k]]))  # periodic BC
+g.add_factor(np.array([N - 1, 0]), np.array([[k, - k], [- k, k]]))  # periodic BC
 
 
 # external field
@@ -39,4 +41,4 @@ for i in range(N):
     g.add_factor(np.array([i]), np.array([h, - h]))
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies)
+cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)

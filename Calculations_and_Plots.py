@@ -8,7 +8,7 @@ import LBP_FactorGraphs_replica as lbp
 '''
 
 
-def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, free_energies):
+def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, free_energies, joint_flag):
     # Implementing the algorithm
     g.vis_graph(vis)
     z = g.exact_partition()
@@ -34,22 +34,25 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
             beliefs_from_factors_to_energy[i, t] += beliefs_from_factor_beliefs[i][item][t]
 
     # Calculating the approximated joint distribution for a tree like graph
+    joint = []
+    joint_normalization = []
+    KL_divergence = []
     shape_of_joint = []
     for i in range(g.node_count):
         shape_of_joint.append(g.nodes[i][1])
-    joint = np.ones(shape_of_joint, dtype=float)
     real_joint = np.ones(shape_of_joint, dtype=float)
     for item in factor_beliefs:
-        joint *= factor_beliefs[item][t_max]
         real_joint *= g.factors[item][1]
-    for i in range(g.node_count):
-        joint /= (lbp.Graph.broadcasting(g, np.array(beliefs[i, t_max]), np.array([i]))) ** (len(g.nodes[i][2]) - 1)
-    KL_divergence = - np.sum(joint * np.log(joint / real_joint))
-    print('\n')
-    print('KL_divergence = ')
-    print(KL_divergence)
-    print('\n')
-    print(np.sum(joint))
+    real_joint /= np.sum(real_joint)
+    for t in range(t_max):
+        joint.append(np.ones(shape_of_joint, dtype=float))
+        for item in factor_beliefs:
+            joint[t] *= factor_beliefs[item][t]
+        for i in range(g.node_count):
+            joint[t] /= (lbp.Graph.broadcasting(g, np.array(beliefs[i, t]), np.array([i]))) ** (len(g.nodes[i][2]) - 1)
+        joint[t] /= np.sum(joint[t])  # adding normalization constant to the approximated joint
+        KL_divergence.append(np.sum(joint[t] * np.log(joint[t] / real_joint)))
+        joint_normalization.append(np.sum(joint[t]))
 
 
     # Calculating free energies
@@ -112,8 +115,17 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
         plt.plot(range(t_max + 1), f_mean_field_from_factor_beliefs, 's')
         plt.plot(range(t_max + 1), f_bethe, 'o')
         plt.plot(range(t_max + 1), np.ones(t_max + 1, dtype=float) * F)
+        #plt.ylim((F - np.abs(F - f_bethe[t_max]), f_bethe[t_max] + np.abs(F - f_bethe[t_max])))
         plt.legend(['F mean field', 'f_mean_field_from_factor_beliefs', 'F Bethe', 'F exact'])
         plt.show()
+
+    if joint_flag:
+        plt.figure()
+        plt.title('Approximated joint normailzation and KL divergence')
+        plt.plot(range(t_max), joint_normalization, 'o')
+        plt.plot(range(t_max), KL_divergence, 's')
+        plt.show()
+
 
 
 

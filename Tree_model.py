@@ -25,6 +25,7 @@ single_node = 1
 single_node_from_factors = 1
 compare = 0
 free_energies = 1
+joint_flag = 1
 
 # name of graph
 g = lbp.Graph(N)
@@ -48,4 +49,4 @@ for i in range(N):
     g.add_factor(np.array([i]), np.array([h, - h]))
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies)
+cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
