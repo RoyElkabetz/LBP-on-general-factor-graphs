@@ -1,6 +1,6 @@
 import numpy as np
-import LBP_FactorGraphs_replica as lbp
-import Calculations_and_Plots as cplot
+import LBP_FactorGraphs_complex as lbp
+import Calculations_and_Plots_complex as cplot
 
 
 '''
@@ -8,9 +8,9 @@ import Calculations_and_Plots as cplot
 '''
 
 # parameters
-h = 1
-k = 1
-t_max = 30
+h = 0.1j
+k = 1j
+t_max = 100
 N = 16
 L = int(np.sqrt(N))
 alphabet = 2
@@ -20,7 +20,7 @@ grid = np.reshape([range(N)], [L, L])
 vis = 'grid'   # grid, no grid, no vis
 single_node = 1
 single_node_from_factors = 1
-compare = 0
+compare = 1
 free_energies = 1
 joint_flag = 1
 
