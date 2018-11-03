@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5edcd4d9-7ca2-49ac-802a-1a46fe3967ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Calculations_and_Plots_complex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1D_Ising_model_complex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2D_Ising_model_complex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tree_model_complex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1D_Ising_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/1D_Ising_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2D_Ising_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_Ising_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs_complex.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs_complex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tree_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tree_model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -55,11 +55,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tree_model.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tree_model_complex.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tree_model_complex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="1D_Ising_model_complex.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/1D_Ising_model_complex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tree_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tree_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="224">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -95,8 +119,17 @@
       <file leaf-file-name="2D_Ising_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+            <state relative-caret-position="48">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2D_Ising_model_complex.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2D_Ising_model_complex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -132,9 +165,12 @@
         <option value="$PROJECT_DIR$/Calculations_and_Plots.py" />
         <option value="$PROJECT_DIR$/LBP_FactorGraphs_complex.py" />
         <option value="$PROJECT_DIR$/Calculations_and_Plots_complex.py" />
+        <option value="$PROJECT_DIR$/1D_Ising_model_complex.py" />
         <option value="$PROJECT_DIR$/1D_Ising_model.py" />
-        <option value="$PROJECT_DIR$/2D_Ising_model.py" />
+        <option value="$PROJECT_DIR$/Tree_model_complex.py" />
         <option value="$PROJECT_DIR$/Tree_model.py" />
+        <option value="$PROJECT_DIR$/2D_Ising_model.py" />
+        <option value="$PROJECT_DIR$/2D_Ising_model_complex.py" />
       </list>
     </option>
   </component>
@@ -339,7 +375,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.25142857" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.3371266" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21387696" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21387696" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.3297568" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32859176" />
@@ -435,9 +471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -572,20 +605,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
+    <entry file="file://$PROJECT_DIR$/1D_Ising_model_complex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="90">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
+    <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        <state relative-caret-position="242">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tree_model_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -594,8 +637,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tree_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        <state relative-caret-position="224">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D_Ising_model_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

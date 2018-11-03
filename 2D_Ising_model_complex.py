@@ -1,15 +1,15 @@
 import numpy as np
 import LBP_FactorGraphs_complex as lbp
-import Calculations_and_Plots as cplot
+import Calculations_and_Plots_complex as cplot
 
 
 '''
-    2D Ising model with cyclic BC 
+    2D Ising model with cyclic BC and complex weights
 '''
 
 # parameters
-h = 0.1
-k = 1
+h = 0.1j
+k = 1j
 t_max = 100
 N = 16
 L = int(np.sqrt(N))

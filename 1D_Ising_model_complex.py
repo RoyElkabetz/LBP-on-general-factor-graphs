@@ -1,15 +1,15 @@
 import numpy as np
 import LBP_FactorGraphs_complex as lbp
-import Calculations_and_Plots as cplot
+import Calculations_and_Plots_complex as cplot
 
 
 '''
-    1D Ising model
+    1D Ising model with complex weights
 '''
 
 # parameters
-h = 0.1
-k = 1
+h = 0.1 + 0.1j
+k = 1 + 1j
 t_max = 50
 N = 16
 alpha = 2
