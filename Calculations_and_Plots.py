@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import LBP_FactorGraphs_replica as lbp
+import LBP_FactorGraphs as lbp
 
 '''
     Implementing the SumProduct and calculating marginals and free energies

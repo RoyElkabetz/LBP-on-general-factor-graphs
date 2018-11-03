@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5edcd4d9-7ca2-49ac-802a-1a46fe3967ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/1D_Ising_model_complex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2D_Ising_model_complex.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tree_model_complex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/1D_Ising_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/1D_Ising_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2D_Ising_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D_Ising_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Calculations_and_Plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Calculations_and_Plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LBP_FactorGraphs_replica.py" beforeDir="false" afterPath="$PROJECT_DIR$/LBP_FactorGraphs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tree_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tree_model.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,35 +45,8 @@
       <file leaf-file-name="1D_Ising_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tree_model_complex.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tree_model_complex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1D_Ising_model_complex.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/1D_Ising_model_complex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -82,57 +54,17 @@
       <file leaf-file-name="Tree_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tree_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="28">
+              <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calculations_and_Plots_complex.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Calculations_and_Plots_complex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="52" column="21" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LBP_FactorGraphs_complex.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_complex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1292">
-              <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#1336#4429#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2D_Ising_model.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2D_Ising_model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2D_Ising_model_complex.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2D_Ising_model_complex.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="24">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -166,11 +98,11 @@
         <option value="$PROJECT_DIR$/LBP_FactorGraphs_complex.py" />
         <option value="$PROJECT_DIR$/Calculations_and_Plots_complex.py" />
         <option value="$PROJECT_DIR$/1D_Ising_model_complex.py" />
-        <option value="$PROJECT_DIR$/1D_Ising_model.py" />
         <option value="$PROJECT_DIR$/Tree_model_complex.py" />
+        <option value="$PROJECT_DIR$/2D_Ising_model_complex.py" />
+        <option value="$PROJECT_DIR$/1D_Ising_model.py" />
         <option value="$PROJECT_DIR$/Tree_model.py" />
         <option value="$PROJECT_DIR$/2D_Ising_model.py" />
-        <option value="$PROJECT_DIR$/2D_Ising_model_complex.py" />
       </list>
     </option>
   </component>
@@ -451,9 +383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
           <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -461,9 +390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
           <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -474,7 +400,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
+    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="22" column="48" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="48" />
@@ -557,7 +483,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_replica.py">
+    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
           <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
@@ -584,17 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_complex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1292">
-          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1336#4429#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Calculations_and_Plots_complex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="755">
@@ -615,16 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tree_model_complex.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -635,20 +540,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tree_model.py">
+    <entry file="file://$PROJECT_DIR$/1D_Ising_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="44">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LBP_FactorGraphs_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1292">
+          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1336#4429#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
+    <entry file="file://$PROJECT_DIR$/Tree_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="28">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -659,6 +572,13 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2D_Ising_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
         </state>
       </provider>
     </entry>

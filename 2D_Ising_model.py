@@ -1,5 +1,5 @@
 import numpy as np
-import LBP_FactorGraphs_complex as lbp
+import LBP_FactorGraphs as lbp
 import Calculations_and_Plots as cplot
 
 
