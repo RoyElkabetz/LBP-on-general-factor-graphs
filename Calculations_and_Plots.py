@@ -8,12 +8,12 @@ import LBP_FactorGraphs as lbp
 '''
 
 
-def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, free_energies, joint_flag):
+def calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors, compare, free_energies, joint_flag):
     # Implementing the algorithm
     g.vis_graph(vis)
     z = g.exact_partition()
     F = - np.log(z)
-    beliefs, factor_beliefs = g.sum_product(t_max, 1)
+    beliefs, factor_beliefs, t_max = g.sum_product(t_max, epsilon)
     beliefs_from_factor_beliefs = []
     beliefs_from_factors_to_energy = np.zeros([g.node_count, t_max + 1, 2], dtype=float)
     f_mean_field = np.ones(t_max + 1, dtype=float)
@@ -50,7 +50,7 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
             joint[t] *= factor_beliefs[item][t]
         for i in range(g.node_count):
             joint[t] /= (lbp.Graph.broadcasting(g, np.array(beliefs[i, t]), np.array([i]))) ** (len(g.nodes[i][2]) - 1)
-        joint[t] /= np.sum(joint[t])  # adding normalization constant to the approximated joint
+        #joint[t] /= np.sum(joint[t])  # adding normalization constant to the approximated joint
         KL_divergence.append(np.sum(joint[t] * np.log(joint[t] / real_joint)))
         joint_normalization.append(np.sum(joint[t]))
 
@@ -69,25 +69,21 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
         plt.figure()
         plt.title('Single node marginals')
         for i in range(g.node_count):
-            plt.plot(range(t_max + 1), beliefs[i], 'o')
+            plt.plot(range(t_max + 1), beliefs[i])
         plt.show()
 
     if single_node_from_factors:
         plt.figure()
         plt.title('Single node marginals calculated from factor beliefs')
-        #label = []
         for i in range(g.node_count):
             for item in g.nodes[i][2]:
-                #label.append(item)
-                #label.append(item)
-                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 0], 'o')
-                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 1], 'o')
-        #plt.legend(label)
+                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 0])
+                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 1])
         plt.show()
 
     if compare:
         j = 0
-        object = 'F,0,8'
+        object = 'F,0,1'
         plt.figure()
         plt.title('comparing node marginals of a')
         plt.plot(range(t_max + 1), beliefs[j], 's')
@@ -103,7 +99,7 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
 
 
         plt.figure()
-        plt.title('error between marginal calculation over node a')
+        plt.title('Error between marginal calculation over node 0')
         plt.plot(range(t_max + 1), delta0, 'o')
         plt.plot(range(t_max + 1), delta1, 'o')
         plt.show()
@@ -116,7 +112,7 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
         plt.plot(range(t_max + 1), f_bethe, 'o')
         plt.plot(range(t_max + 1), np.ones(t_max + 1, dtype=float) * F)
         #plt.ylim((F - np.abs(F - f_bethe[t_max]), f_bethe[t_max] + np.abs(F - f_bethe[t_max])))
-        plt.legend(['F mean field', 'f_mean_field_from_factor_beliefs', 'F Bethe', 'F exact'])
+        plt.legend(['F_mf', 'F_mf_from_factor_beliefs', 'F_Bethe', 'F_exact'])
         plt.show()
 
     if joint_flag:
@@ -124,8 +120,10 @@ def calc_n_plot(g, t_max, vis, single_node, single_node_from_factors, compare, f
         plt.title('Approximated joint normailzation and KL divergence')
         plt.plot(range(t_max), joint_normalization, 'o')
         plt.plot(range(t_max), KL_divergence, 's')
+        plt.legend(['Normalization', 'KL divergence'])
         plt.show()
 
+    return t_max
 
 
 

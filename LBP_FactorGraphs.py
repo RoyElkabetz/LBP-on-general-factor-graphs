@@ -102,6 +102,7 @@ class Graph:
             nx.draw_networkx(node_sub, pos=node_pos, node_color='b', node_shape='o', node_size=200)
             nx.draw_networkx(factor_sub, pos=factor_pos, node_color='r', node_shape='s', node_size=500)
             nx.draw_networkx_edges(G, pos=pos)
+            plt.axis('off')
             plt.show()
 
         if flag == 'no vis':
@@ -125,6 +126,7 @@ class Graph:
         factor2node = {}
         node_belief = []
         factor_beliefs = {}
+        counter = 0
 
         '''
             Initialization of messages and beliefs
@@ -146,6 +148,7 @@ class Graph:
             Preforming sum product iterations
         '''
         for t in range(t_max):
+
             for item in factors:
                 neighbors_nodes = cp.deepcopy(factors[item][0])
                 factor2node[item] = {}
@@ -161,6 +164,8 @@ class Graph:
                     temp = np.einsum(temp, range(self.node_count), [neighbors_nodes[i]])
                     factor2node[item][neighbors_nodes[i]] = np.reshape(temp / np.sum(temp), nodes[neighbors_nodes[i]][1])
                 factor_beliefs[item].append(np.array(temp_factor / np.sum(temp_factor)))
+                if t > 6 and np.sum(np.abs(factor_beliefs[item][t] - factor_beliefs[item][t - 1])) < epsilon:
+                    counter += 1
 
             for i in range(self.node_count):
                 alphabet = nodes[i][1]
@@ -176,7 +181,12 @@ class Graph:
                     node2factor[i][item] /= np.sum(node2factor[i][item], axis=i)
                     temp *= self.broadcasting(np.array(factor2node[item][i]), np.array([i]))
                 node_belief[i].append(np.reshape(temp, [alphabet]) / np.sum(temp))
-        return np.array(node_belief), factor_beliefs
+                if t > 6 and np.sum(np.abs(node_belief[i][t] - node_belief[i][t - 1])) < epsilon:
+                    counter += 1
+            if counter == self.factors_count + self.node_count:
+                return np.array(node_belief), factor_beliefs, t + 1
+            else: counter = 0
+        return np.array(node_belief), factor_beliefs, t_max
 
     def mean_field_approx_to_F(self, node_beliefs):
         energy = 0

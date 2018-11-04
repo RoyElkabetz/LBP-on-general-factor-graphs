@@ -11,7 +11,8 @@ import Calculations_and_Plots as cplot
 h = 0.1
 k = 1
 t_max = 100
-N = 16
+epsilon = 1e-7
+N = 9
 L = int(np.sqrt(N))
 alphabet = 2
 grid = np.reshape([range(N)], [L, L])
@@ -45,4 +46,4 @@ for i in range(L):
 
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
+last_t = cplot.calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)

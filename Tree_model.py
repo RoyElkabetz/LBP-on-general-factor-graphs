@@ -11,6 +11,7 @@ import Calculations_and_Plots as cplot
 h = 0.1
 k = 1
 t_max = 30
+epsilon = 1e-10
 n = 4
 N = 0
 N_of_sons = 2
@@ -48,4 +49,4 @@ for i in range(N):
     g.add_factor(np.array([i]), np.array([h, - h]))
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
+last_t = cplot.calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
