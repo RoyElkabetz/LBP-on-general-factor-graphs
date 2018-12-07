@@ -69,7 +69,7 @@ def calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors, c
         plt.figure()
         plt.title('Single node marginals')
         for i in range(g.node_count):
-            plt.plot(range(t_max + 1), beliefs[i])
+            plt.plot(range(t_max + 1), beliefs[i], 'o')
         plt.show()
 
     if single_node_from_factors:
@@ -77,8 +77,8 @@ def calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors, c
         plt.title('Single node marginals calculated from factor beliefs')
         for i in range(g.node_count):
             for item in g.nodes[i][2]:
-                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 0])
-                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 1])
+                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 0], 'o')
+                plt.plot(range(t_max + 1), beliefs_from_factor_beliefs[i][item][:, 1], 'o')
         plt.show()
 
     if compare:
@@ -120,6 +120,9 @@ def calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors, c
         plt.title('Approximated joint normailzation and KL divergence')
         plt.plot(range(t_max), joint_normalization, 'o')
         plt.plot(range(t_max), KL_divergence, 's')
+        plt.plot(range(t_max), np.ones(t_max))
+        plt.plot(range(t_max), np.zeros(t_max))
+        plt.yscale('log')
         plt.legend(['Normalization', 'KL divergence'])
         plt.show()
 

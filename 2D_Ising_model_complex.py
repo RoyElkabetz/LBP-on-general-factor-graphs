@@ -11,6 +11,7 @@ import Calculations_and_Plots_complex as cplot
 h = 0.1j
 k = 1j
 t_max = 100
+epsilon = 1e-7
 N = 16
 L = int(np.sqrt(N))
 alphabet = 2
@@ -45,4 +46,4 @@ for i in range(L):
 
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
+last_t = cplot.calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)

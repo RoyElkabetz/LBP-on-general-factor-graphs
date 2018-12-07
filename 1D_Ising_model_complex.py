@@ -8,9 +8,10 @@ import Calculations_and_Plots_complex as cplot
 '''
 
 # parameters
-h = 0.1 + 0.1j
-k = 1 + 1j
-t_max = 50
+h = 0.1j
+k = 1j
+t_max = 100
+epsilon = 1e-7
 N = 16
 alpha = 2
 
@@ -41,4 +42,4 @@ for i in range(N):
     g.add_factor(np.array([i]), np.array([h, - h]))
 
 # Implementing the algorithm
-cplot.calc_n_plot(g, t_max, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)
+last_t = cplot.calc_n_plot(g, t_max, epsilon, vis, single_node, single_node_from_factors,  compare, free_energies, joint_flag)

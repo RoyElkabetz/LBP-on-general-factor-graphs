@@ -10,7 +10,7 @@ import Calculations_and_Plots as cplot
 # parameters
 h = 0.1
 k = 1
-t_max = 30
+t_max = 50
 epsilon = 1e-10
 n = 4
 N = 0

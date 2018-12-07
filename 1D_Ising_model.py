@@ -34,7 +34,7 @@ for i in range(N):
 # interactions
 for i in range(N - 1):
     g.add_factor(np.array([i, i + 1]), np.array([[k, - k], [- k, k]]))
-#g.add_factor(np.array([N - 1, 0]), np.array([[k, - k], [- k, k]]))  # periodic BC
+g.add_factor(np.array([N - 1, 0]), np.array([[k, - k], [- k, k]]))  # periodic BC
 
 
 # external field

@@ -125,6 +125,8 @@ class Graph:
         factor2node = {}
         node_belief = []
         factor_beliefs = {}
+        counter = 0
+
 
         '''
             Initialization of messages and beliefs
@@ -162,6 +164,8 @@ class Graph:
                     temp = np.einsum(temp, range(self.node_count), [neighbors_nodes[i]])
                     factor2node[item][neighbors_nodes[i]] = np.reshape(temp / np.sum(temp), nodes[neighbors_nodes[i]][1])
                 factor_beliefs[item].append(np.array(temp_factor / np.sum(temp_factor)))
+                if t > 6 and np.abs(np.sum(np.abs(factor_beliefs[item][t] - factor_beliefs[item][t - 1]))) < epsilon:
+                    counter += 1
 
             for i in range(self.node_count):
                 alphabet = nodes[i][1]
@@ -177,15 +181,13 @@ class Graph:
                     node2factor[i][item] /= np.sum(node2factor[i][item], axis=i)
                     temp *= self.broadcasting(np.array(factor2node[item][i]), np.array([i]))
                 node_belief[i].append(np.reshape(temp, [alphabet]) / np.sum(temp))
-            #if t >= 2:
-             #   if (np.abs(np.sum(np.array(node_belief)[:, t - 1, :] - np.array(node_belief)[:, t - 2, :])) < self.node_count * epsilon):
-              #      step = 0
-               #     for item in factor_beliefs:
-                #        step += np.abs(np.sum(factor_beliefs[item][t - 1] - factor_beliefs[item][t - 2]))
-                 #   if step < self.factors_count * epsilon:
-                  #      print('All beliefs had converged')
-                   #     return np.array(node_belief), factor_beliefs, t
-        return np.array(node_belief), factor_beliefs, t
+                if t > 6 and np.abs(np.sum(np.abs(node_belief[i][t] - node_belief[i][t - 1]))) < epsilon:
+                    counter += 1
+            if counter == self.factors_count + self.node_count:
+                return np.array(node_belief), factor_beliefs, t + 1
+            else:
+                counter = 0
+        return np.array(node_belief), factor_beliefs, t_max
 
     def mean_field_approx_to_F(self, node_beliefs):
         energy = 0
